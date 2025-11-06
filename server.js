@@ -62,5 +62,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(process.env.PORT, () => {
-    console.log("✅ Chat service running on port", process.env.PORT);
+    console.log("✅ Chat service is running on port", process.env.PORT);
 });
