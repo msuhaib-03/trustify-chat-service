@@ -107,7 +107,7 @@ io.on("connection", (socket) => {
         try {
             //await postMessageToSpring(chatId, payload, socket.handshake.auth?.token);
             await postMessageToSpring(chatId, payload, socket.springToken);
-
+            console.log("✅ Message synced to Spring");
         } catch (e) {
             console.error("❌ Failed to sync message to Spring:", e.message);
         }
@@ -134,3 +134,9 @@ io.on("connection", (socket) => {
 server.listen(process.env.PORT, () => {
     console.log("🚀 Chat service is running on port", process.env.PORT);
 });
+
+// 40{"token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWJpeWE3QGdtYWlsLmNvbSIsImlhdCI6MTc2MjUyODI2NywiZXhwIjoxNzYyNTMxODY3fQ.F7Jwhg1DPF6hIx9bbBUigkw_uUCSwawvd6bAViauR3g"}
+//    42["joinRoom","690dcedfee650736609046cd"]
+
+//   42["sendMessage", {"chatId":"690dcedfee650736609046cd","message":"Hello from Postman"}]
+// ws://localhost:3001/socket.io/?EIO=4&transport=websocket ---> in the ws URL ( websocket )
